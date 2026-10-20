@@ -1,4 +1,4 @@
-name: Exam Rescue Android CI
+name: Android APK Build
 
 on:
   push:
@@ -11,12 +11,12 @@ permissions:
   contents: read
 
 concurrency:
-  group: android-ci-${{ github.ref }}
+  group: android-build-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
-    name: Test and build debug APK
+  build-debug-apk:
+    name: Build debug APK
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Java
+      - name: Set up Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -32,86 +32,48 @@ jobs:
           cache: gradle
 
       - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android packages
         shell: bash
         run: |
-          set -euo pipefail
-          export ANDROID_SDK_ROOT="${ANDROID_SDK_ROOT:-$HOME/android-sdk}"
-          mkdir -p "$ANDROID_SDK_ROOT"
-
-          if [[ ! -x "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" ]]; then
-            cd /tmp
-            rm -rf cmdline-tools cmdline-tools.zip commandlinetools-linux-*
-            curl -fsSL "https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip" -o cmdline-tools.zip
-            unzip -q cmdline-tools.zip
-            rm -rf "$ANDROID_SDK_ROOT/cmdline-tools"
-            mkdir -p "$ANDROID_SDK_ROOT/cmdline-tools"
-            mv cmdline-tools "$ANDROID_SDK_ROOT/cmdline-tools/latest"
-          fi
-
-          echo "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin" >> "$GITHUB_PATH"
-          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT" >> "$GITHUB_ENV"
-
-      - name: Install Android SDK packages
-        shell: bash
-        run: |
-          set -euo pipefail
-          export ANDROID_SDK_ROOT="${ANDROID_SDK_ROOT:-$HOME/android-sdk}"
-          echo "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin" >> "$GITHUB_PATH"
-
-          # Prevent the harmless broken pipe from failing the job
-          set +o pipefail
-          yes 2>/dev/null | sdkmanager --licenses >/dev/null || true
-          set -o pipefail
-
+          set -euxo pipefail
+          yes | sdkmanager --licenses || true
           sdkmanager --install \
             "platform-tools" \
             "platforms;android-36" \
             "build-tools;36.0.0"
 
-      - name: Install Gradle
+      - name: Ensure Gradle wrapper exists
         shell: bash
         run: |
-          set -euo pipefail
+          set -euxo pipefail
 
-          GRADLE_VERSION="9.3.1"
-          ZIP_NAME="gradle-${GRADLE_VERSION}-bin.zip"
-          DIST_URL="https://services.gradle.org/distributions/${ZIP_NAME}"
-          ZIP_PATH="$RUNNER_TEMP/$ZIP_NAME"
-
-          curl --fail --location --retry 3 "$DIST_URL" --output "$ZIP_PATH"
-          unzip -q "$ZIP_PATH" -d "$RUNNER_TEMP"
-
-          GRADLE_HOME="$RUNNER_TEMP/gradle-${GRADLE_VERSION}"
-
-          if [[ ! -x "$GRADLE_HOME/bin/gradle" ]]; then
-            echo "::error::Gradle executable not found"
-            exit 1
+          if [ ! -f "./gradlew" ]; then
+            echo "No gradlew found. Generating wrapper..."
+            wget -q "https://services.gradle.org/distributions/gradle-9.3.1-bin.zip" -O /tmp/gradle-9.3.1-bin.zip
+            unzip -q /tmp/gradle-9.3.1-bin.zip -d /tmp
+            /tmp/gradle-9.3.1/bin/gradle wrapper --no-daemon --stacktrace
           fi
 
-          echo "$GRADLE_HOME/bin" >> "$GITHUB_PATH"
-          "$GRADLE_HOME/bin/gradle" --version
-
-      - name: Verify project structure
+      - name: Verify required project files
         shell: bash
         run: |
-          set -euo pipefail
+          set -euxo pipefail
           test -f settings.gradle.kts || test -f settings.gradle
           test -f app/build.gradle.kts || test -f app/build.gradle
-          echo "Android project files found."
+          echo "Project files OK"
 
       - name: Run unit tests
-        run: gradle --no-daemon :app:testDebugUnitTest
-
-      - name: Run Android lint
-        run: gradle --no-daemon :app:lintDebug
+        run: ./gradlew --no-daemon --stacktrace :app:testDebugUnitTest
 
       - name: Build debug APK
-        run: gradle --no-daemon :app:assembleDebug
+        run: ./gradlew --no-daemon --stacktrace :app:assembleDebug
 
-      - name: Upload debug APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: exam-rescue-debug-apk-${{ github.sha }}
+          name: exam-rescue-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
           retention-days: 14
