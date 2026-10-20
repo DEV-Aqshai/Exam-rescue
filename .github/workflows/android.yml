@@ -58,7 +58,7 @@ jobs:
           export ANDROID_SDK_ROOT="${ANDROID_SDK_ROOT:-$HOME/android-sdk}"
           echo "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin" >> "$GITHUB_PATH"
 
-          # Fix the broken pipe from `yes | sdkmanager --licenses`
+          # Prevent the harmless broken pipe from failing the job
           set +o pipefail
           yes 2>/dev/null | sdkmanager --licenses >/dev/null || true
           set -o pipefail
@@ -68,24 +68,45 @@ jobs:
             "platforms;android-36" \
             "build-tools;36.0.0"
 
+      - name: Install Gradle
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          GRADLE_VERSION="9.3.1"
+          ZIP_NAME="gradle-${GRADLE_VERSION}-bin.zip"
+          DIST_URL="https://services.gradle.org/distributions/${ZIP_NAME}"
+          ZIP_PATH="$RUNNER_TEMP/$ZIP_NAME"
+
+          curl --fail --location --retry 3 "$DIST_URL" --output "$ZIP_PATH"
+          unzip -q "$ZIP_PATH" -d "$RUNNER_TEMP"
+
+          GRADLE_HOME="$RUNNER_TEMP/gradle-${GRADLE_VERSION}"
+
+          if [[ ! -x "$GRADLE_HOME/bin/gradle" ]]; then
+            echo "::error::Gradle executable not found"
+            exit 1
+          fi
+
+          echo "$GRADLE_HOME/bin" >> "$GITHUB_PATH"
+          "$GRADLE_HOME/bin/gradle" --version
+
       - name: Verify project structure
         shell: bash
         run: |
           set -euo pipefail
-          chmod +x ./gradlew
-          test -f gradlew
           test -f settings.gradle.kts || test -f settings.gradle
           test -f app/build.gradle.kts || test -f app/build.gradle
           echo "Android project files found."
 
       - name: Run unit tests
-        run: ./gradlew --no-daemon :app:testDebugUnitTest
+        run: gradle --no-daemon :app:testDebugUnitTest
 
       - name: Run Android lint
-        run: ./gradlew --no-daemon :app:lintDebug
+        run: gradle --no-daemon :app:lintDebug
 
       - name: Build debug APK
-        run: ./gradlew --no-daemon :app:assembleDebug
+        run: gradle --no-daemon :app:assembleDebug
 
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
