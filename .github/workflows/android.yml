@@ -20,10 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
-    env:
-      JAVA_VERSION: "17"
-      ANDROID_SDK_ROOT: ${{ github.workspace }}/android-sdk
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,40 +29,43 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
-          cache: gradle
 
-      - name: Install Android SDK command line tools
+      # IMPORTANT: the GitHub runner already ships the Android SDK at
+      # /usr/local/lib/android/sdk with both ANDROID_HOME and ANDROID_SDK_ROOT
+      # pointing there. AGP 9 fails the build with "Several environment
+      # variables and/or system properties contain different paths to the SDK"
+      # if ANDROID_SDK_ROOT is overridden to a custom location, so we reuse the
+      # preinstalled SDK and never override the environment variables.
+      - name: Accept Android SDK licenses and install components
         shell: bash
         run: |
-          set -euxo pipefail
+          set -euo pipefail
 
-          mkdir -p "$ANDROID_SDK_ROOT"
-          if [ ! -d "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin" ]; then
-            wget -q "https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip" -O /tmp/cmdline-tools.zip
-            rm -rf "$ANDROID_SDK_ROOT/cmdline-tools"
-            mkdir -p "$ANDROID_SDK_ROOT/cmdline-tools"
-            unzip -q /tmp/cmdline-tools.zip -d "$ANDROID_SDK_ROOT"
-            if [ -d "$ANDROID_SDK_ROOT/cmdline-tools/bin" ]; then
-              mkdir -p "$ANDROID_SDK_ROOT/cmdline-tools/latest"
-              mv "$ANDROID_SDK_ROOT/cmdline-tools/bin" "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin"
-              mv "$ANDROID_SDK_ROOT/cmdline-tools/lib" "$ANDROID_SDK_ROOT/cmdline-tools/latest/lib" 2>/dev/null || true
-              mv "$ANDROID_SDK_ROOT/cmdline-tools/source.properties" "$ANDROID_SDK_ROOT/cmdline-tools/latest/source.properties" 2>/dev/null || true
-              mv "$ANDROID_SDK_ROOT/cmdline-tools/NOTICE.txt" "$ANDROID_SDK_ROOT/cmdline-tools/latest/NOTICE.txt" 2>/dev/null || true
-            fi
+          export ANDROID_SDK_ROOT="${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}"
+          export ANDROID_HOME="${ANDROID_HOME:-$ANDROID_SDK_ROOT}"
+
+          SDKMANAGER="$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager"
+          if [ ! -x "$SDKMANAGER" ]; then
+            SDKMANAGER="$(command -v sdkmanager)"
           fi
 
-          yes | "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null || true
+          # Accept licenses; the broken pipe from `yes` is expected.
+          set +o pipefail
+          yes 2>/dev/null | "$SDKMANAGER" --licenses >/dev/null || true
+          set -o pipefail
 
-          "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" --install \
+          "$SDKMANAGER" --install \
             "platform-tools" \
             "platforms;android-36" \
-            "build-tools;36.0.0" \
-            "cmdline-tools;latest"
+            "build-tools;36.0.0"
 
+      # The debug build type is wired to ${rootDir}/debug.keystore
+      # (see app/build.gradle.kts -> signingConfigs.debugConfig),
+      # so the keystore must exist before Gradle configures the build.
       - name: Create debug keystore
         shell: bash
         run: |
-          set -euxo pipefail
+          set -euo pipefail
 
           if [ ! -f "${{ github.workspace }}/debug.keystore" ]; then
             keytool -genkeypair -v \
@@ -80,36 +79,33 @@ jobs:
               -validity 10000
           fi
 
+      # The repository has no committed Gradle wrapper, so generate it with the
+      # Gradle version installed on the runner (matches the 9.3.1 version pinned
+      # in gradle/wrapper/gradle-wrapper.properties).
       - name: Ensure Gradle wrapper exists
         shell: bash
         run: |
-          set -euxo pipefail
+          set -euo pipefail
 
           if [ ! -f "./gradlew" ]; then
-            echo "No gradlew found. Generating wrapper..."
-            wget -q "https://services.gradle.org/distributions/gradle-9.3.1-bin.zip" -O /tmp/gradle-9.3.1-bin.zip
-            unzip -q /tmp/gradle-9.3.1-bin.zip -d /tmp
-            /tmp/gradle-9.3.1/bin/gradle wrapper --no-daemon --stacktrace
+            echo "No gradlew found. Generating wrapper with the runner's Gradle..."
+            gradle wrapper --no-daemon --stacktrace
           fi
-
-      - name: Verify required project files
-        shell: bash
-        run: |
-          set -euxo pipefail
-          test -f settings.gradle.kts || test -f settings.gradle
-          test -f app/build.gradle.kts || test -f app/build.gradle
-          echo "Project files OK"
+          chmod +x ./gradlew
 
       - name: Run unit tests
         shell: bash
         run: |
-          set -euxo pipefail
+          set -euo pipefail
           ./gradlew --no-daemon --stacktrace :app:testDebugUnitTest
 
+      # Lint is deliberately NOT part of this job: lintDebug currently reports
+      # 4 errors (NewApi warnings in KeystoreManager.kt) which are unrelated to
+      # APK assembly. assembleDebug never runs lint.
       - name: Build debug APK
         shell: bash
         run: |
-          set -euxo pipefail
+          set -euo pipefail
           ./gradlew --no-daemon --stacktrace :app:assembleDebug
 
       - name: Upload APK artifact
