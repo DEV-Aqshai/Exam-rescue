@@ -1,0 +1,103 @@
+name: Android CI & APK Build
+
+on:
+  push:
+    branches: [ "**" ]
+    tags: [ "v*" ]
+  pull_request:
+    branches: [ "**" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build & Test Debug APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Make Gradlew Executable
+        run: chmod +x gradlew || true
+
+      - name: Run Unit Tests
+        run: ./gradlew testDebugUnitTest --no-daemon
+
+      - name: Run Lint Checks
+        run: ./gradlew lintDebug --no-daemon || true
+
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug --no-daemon
+
+      - name: Upload Debug APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: exam-rescue-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+          retention-days: 14
+
+  release:
+    name: Build Signed Release APK
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Check Signing Secrets Availability
+        id: check_secrets
+        run: |
+          if [ -n "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" ] && [ -n "${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" ]; then
+            echo "has_secrets=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_secrets=false" >> $GITHUB_OUTPUT
+            echo "::warning::Release signing secrets not configured. Skipping signed release build."
+          fi
+
+      - name: Decode Keystore & Build Release
+        if: steps.check_secrets.outputs.has_secrets == 'true'
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          STORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          KEYSTORE_PATH="/tmp/release-keystore.jks"
+          echo "$KEYSTORE_BASE64" | base64 --decode > "$KEYSTORE_PATH"
+          export KEYSTORE_PATH
+          ./gradlew assembleRelease --no-daemon
+          rm -f "$KEYSTORE_PATH"
+
+      - name: Upload Release APK
+        if: steps.check_secrets.outputs.has_secrets == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: exam-rescue-release-apk
+          path: app/build/outputs/apk/release/*.apk
+          retention-days: 30

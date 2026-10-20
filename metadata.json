@@ -1,0 +1,6 @@
+{
+  "name": "Exam Rescue",
+  "description": "Sri Lankan GCE O/L study planner, offline practice, mistake notebook, and bilingual AI tutor in Tamil and English.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

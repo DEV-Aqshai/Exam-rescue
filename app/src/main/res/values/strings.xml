@@ -1,0 +1,258 @@
+<resources>
+    <string name="app_name">Exam Rescue</string>
+    <string name="app_tagline">Sri Lankan GCE O/L Study Planner &amp; Bilingual Tutor</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_plan">Plan</string>
+    <string name="nav_practise">Practise</string>
+    <string name="nav_tutor">Tutor</string>
+    <string name="nav_progress">Progress</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Common Actions -->
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_add">Add</string>
+    <string name="action_done">Done</string>
+    <string name="action_next">Next</string>
+    <string name="action_back">Back</string>
+    <string name="action_get_started">Get Started</string>
+    <string name="action_skip">Skip</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_apply">Apply</string>
+    <string name="action_search">Search</string>
+    <string name="action_filter">Filter</string>
+    <string name="action_all">All</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_close">Close</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_reschedule">Reschedule</string>
+    <string name="action_mark_complete">Mark Complete</string>
+    <string name="action_generate_plan">Generate Plan</string>
+    <string name="action_regenerate">Regenerate Suggestions</string>
+    <string name="action_export">Export Data</string>
+    <string name="action_import">Import Data</string>
+    <string name="action_test_connection">Test Connection</string>
+    <string name="action_remove_key">Remove Key</string>
+    <string name="action_delete_all">Delete All Data</string>
+    <string name="action_save_notes">Save to Notes</string>
+    <string name="action_create_flashcards">Create Flashcards</string>
+    <string name="action_create_task">Create Study Task</string>
+    <string name="action_understood">I Understand Now</string>
+    <string name="action_practise_again">Practise Again</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">Welcome to Exam Rescue</string>
+    <string name="onboarding_welcome_subtitle">Empowering Sri Lankan GCE Ordinary Level (O/L) students to prepare with clarity, confidence, and calm.</string>
+    <string name="onboarding_offline_notice">100% Offline-First. Your subjects, syllabus, planner, flashcards, and notes stay completely on your device. No sign-up, no server, and no cloud required.</string>
+    <string name="onboarding_lang_title">Choose Interface Language</string>
+    <string name="onboarding_medium_title">Choose Learning Medium</string>
+    <string name="onboarding_medium_desc">Select the medium of your GCE O/L exams. You can choose Tamil or English medium independently of the app interface language.</string>
+    <string name="lang_english">English</string>
+    <string name="lang_tamil">தமிழ் (Tamil)</string>
+    <string name="medium_english">English Medium</string>
+    <string name="medium_tamil">தமிழ் மொழி மூலம் (Tamil Medium)</string>
+    <string name="onboarding_target_exam_title">GCE O/L Exam Target Date</string>
+    <string name="onboarding_target_exam_subtitle">Set your anticipated exam date or select \'Not Sure\' to skip.</string>
+    <string name="onboarding_not_sure">Not sure yet</string>
+    <string name="onboarding_subjects_title">Select Your Subjects</string>
+    <string name="onboarding_subjects_subtitle">Select your 6 core subjects and basket subjects. You can edit this anytime.</string>
+    <string name="onboarding_availability_title">Daily Study Availability</string>
+    <string name="onboarding_availability_subtitle">How many minutes can you study on a typical day?</string>
+    <string name="onboarding_session_length_title">Preferred Session Length</string>
+    <string name="onboarding_ai_disclosure_title">Optional AI Assistant</string>
+    <string name="onboarding_ai_disclosure_body">Core revision, planner, and question practice work 100% offline without any API key. If you wish to use the AI Tutor, you can connect your own API key in Settings at any time.</string>
+
+    <!-- Home Dashboard -->
+    <string name="home_greeting">Hello, Student</string>
+    <string name="home_exam_countdown">%1$d days until %2$s</string>
+    <string name="home_exam_none">No upcoming exams set. Tap to add.</string>
+    <string name="home_today_plan">Today\'s Study Plan</string>
+    <string name="home_minutes_studied">%1$d / %2$d mins planned</string>
+    <string name="home_continue_study">Continue Study</string>
+    <string name="home_quick_actions">Quick Actions</string>
+    <string name="home_start_session">Start Session</string>
+    <string name="home_practise">Practise</string>
+    <string name="home_add_task">Add Task</string>
+    <string name="home_ask_tutor">Ask Tutor</string>
+    <string name="home_weak_topics">Topics Needing Attention</string>
+    <string name="home_overdue_reviews">Overdue Revisions</string>
+    <string name="home_no_tasks_today">No study tasks planned for today. Tap \'Generate Plan\' or add a custom task!</string>
+    <string name="home_all_tasks_completed">Great job! All planned tasks for today are completed.</string>
+
+    <!-- Subjects & Topics -->
+    <string name="subjects_title">Subjects &amp; Syllabus</string>
+    <string name="subjects_add_subject">Add Custom Subject</string>
+    <string name="subjects_add_topic">Add Topic</string>
+    <string name="topic_confidence">Confidence: %1$d / 5</string>
+    <string name="topic_status_not_started">Not Started</string>
+    <string name="topic_status_learning">Learning</string>
+    <string name="topic_status_revising">Revising</string>
+    <string name="topic_status_confident">Confident</string>
+    <string name="topic_last_revised">Last revised: %1$s</string>
+    <string name="topic_next_review">Next review: %1$s</string>
+    <string name="topic_never_revised">Never revised</string>
+    <string name="sample_syllabus_notice">Bundled syllabus is sample content for Sri Lankan GCE O/L. Editable by student.</string>
+
+    <!-- Exams -->
+    <string name="exams_title">Exam Timetable</string>
+    <string name="exams_add">Add Exam</string>
+    <string name="exam_date">Exam Date: %1$s</string>
+    <string name="exam_days_left">%1$d days remaining</string>
+    <string name="exam_reminder">Reminder enabled</string>
+    <string name="exam_no_upcoming">No upcoming exams recorded.</string>
+
+    <!-- Study Planner -->
+    <string name="planner_title">Study Planner</string>
+    <string name="planner_day_view">Day View</string>
+    <string name="planner_week_view">Week View</string>
+    <string name="planner_offline_rules">Offline Prioritized</string>
+    <string name="planner_task_duration">%1$d mins</string>
+    <string name="planner_priority_high">High Priority</string>
+    <string name="planner_priority_medium">Medium Priority</string>
+    <string name="planner_priority_low">Low Priority</string>
+    <string name="planner_reason_exam">Exam proximity</string>
+    <string name="planner_reason_confidence">Low confidence rating</string>
+    <string name="planner_reason_overdue">Overdue revision schedule</string>
+    <string name="planner_reason_new">Never studied yet</string>
+    <string name="planner_time_budget_warning">Total planned time (%1$d mins) fits within your daily target (%2$d mins).</string>
+    <string name="planner_no_tasks">No tasks scheduled for this day.</string>
+
+    <!-- Study Session / Timer -->
+    <string name="session_title">Focus Study Session</string>
+    <string name="session_type_learn">Learn New Concepts</string>
+    <string name="session_type_recall">Active Recall</string>
+    <string name="session_type_questions">Question Practice</string>
+    <string name="session_type_review">Quick Revision</string>
+    <string name="session_start">Start Focus Timer</string>
+    <string name="session_pause">Pause</string>
+    <string name="session_resume">Resume</string>
+    <string name="session_finish">Finish Session</string>
+    <string name="session_completed_title">Session Complete!</string>
+    <string name="session_duration_label">Duration: %1$d mins</string>
+    <string name="session_rate_understanding">Rate your understanding (1-5):</string>
+    <string name="session_notes_placeholder">Write brief notes or key takeaways (optional)...</string>
+    <string name="session_save_summary">Save Session Summary</string>
+
+    <!-- Practice & Questions -->
+    <string name="practise_title">Question Practice</string>
+    <string name="practise_filter_subject">Filter by Subject</string>
+    <string name="practise_filter_topic">Filter by Topic</string>
+    <string name="practise_filter_difficulty">Difficulty</string>
+    <string name="practise_sample_tag">Sample Question</string>
+    <string name="practise_check_answer">Check Answer</string>
+    <string name="practise_explanation">Explanation &amp; Solution Steps</string>
+    <string name="practise_correct">Correct! Well done.</string>
+    <string name="practise_incorrect">Not quite. Review the explanation below.</string>
+    <string name="practise_saved_to_mistakes">Saved to Mistake Notebook for targeted revision.</string>
+    <string name="practise_no_questions">No questions found for the selected filter. Try another subject or topic.</string>
+    <string name="practise_add_custom">Add Custom Question</string>
+
+    <!-- Mistake Notebook -->
+    <string name="mistakes_title">Mistake Notebook</string>
+    <string name="mistakes_subtitle">Turn your errors into your greatest learning opportunities.</string>
+    <string name="mistakes_your_answer">Your Answer: %1$s</string>
+    <string name="mistakes_correct_answer">Reference Answer: %1$s</string>
+    <string name="mistakes_status_active">Needs Practice</string>
+    <string name="mistakes_status_understood">Understood</string>
+    <string name="mistakes_empty">No mistakes recorded yet. As you practise, incorrect answers will be collected here for easy review.</string>
+
+    <!-- Notes & Flashcards -->
+    <string name="notes_title">Notes &amp; Flashcards</string>
+    <string name="tab_notes">Notes</string>
+    <string name="tab_flashcards">Flashcards</string>
+    <string name="notes_add">New Note</string>
+    <string name="notes_title_hint">Note title...</string>
+    <string name="notes_body_hint">Write your study notes here...</string>
+    <string name="notes_empty">No notes created yet. Jot down important formulas, rules, and definitions.</string>
+    <string name="flashcards_add">New Flashcard</string>
+    <string name="flashcard_front_hint">Question or concept (Front)...</string>
+    <string name="flashcard_back_hint">Answer or explanation (Back)...</string>
+    <string name="flashcard_tap_flip">Tap to flip</string>
+    <string name="flashcard_again">Again (&lt; 1d)</string>
+    <string name="flashcard_hard">Hard (1d)</string>
+    <string name="flashcard_good">Good (3d)</string>
+    <string name="flashcard_easy">Easy (5d)</string>
+    <string name="flashcards_due_count">%1$d cards due for review</string>
+    <string name="flashcards_all_reviewed">All flashcards are caught up! Excellent work.</string>
+
+    <!-- AI Tutor & Agents -->
+    <string name="tutor_title">Bilingual AI Tutor</string>
+    <string name="tutor_subtitle">Sri Lankan GCE O/L learning coach. Supports Tamil &amp; English.</string>
+    <string name="tutor_no_api_key_banner">AI Tutor requires a student-provided API key. Core app features remain 100% offline.</string>
+    <string name="tutor_configure_key">Configure in Settings</string>
+    <string name="tutor_offline_notice">Device is offline or provider unconfigured. Use local practice, flashcards, and notes.</string>
+    <string name="tutor_disclaimer">Notice: AI answers can be inaccurate. Always verify against official Sri Lankan textbooks.</string>
+    <string name="tutor_quick_explain">Explain simply</string>
+    <string name="tutor_quick_example">Give an example</string>
+    <string name="tutor_quick_quiz">Quiz me</string>
+    <string name="tutor_quick_check">Check my answer</string>
+    <string name="tutor_quick_summarize">Summarize text</string>
+    <string name="tutor_quick_flashcards">Make flashcards</string>
+    <string name="tutor_agent_planner_coach">Study Planner Coach</string>
+    <string name="tutor_agent_concept_tutor">Concept Tutor</string>
+    <string name="tutor_agent_recall_coach">Active Recall Coach</string>
+    <string name="tutor_agent_mistake_detective">Mistake Detective</string>
+    <string name="tutor_agent_flashcard_builder">Flashcard Builder</string>
+    <string name="tutor_agent_notes_summarizer">Notes Summarizer</string>
+    <string name="tutor_agent_exam_countdown">Exam Countdown Coach</string>
+    <string name="tutor_agent_paper_builder">Practice Paper Builder</string>
+    <string name="tutor_agent_feedback_coach">Answer Feedback Coach</string>
+    <string name="tutor_agent_focus_coach">Focus Session Coach</string>
+    <string name="tutor_input_hint">Ask a question or request explanation...</string>
+    <string name="tutor_send">Send</string>
+    <string name="tutor_context_disclosure">The selected topic, notes, or mistakes will be sent to your configured AI provider over HTTPS.</string>
+    <string name="tutor_proposal_title">AI Proposed Changes</string>
+    <string name="tutor_proposal_approve">Approve &amp; Add</string>
+    <string name="tutor_proposal_discard">Discard</string>
+
+    <!-- Progress -->
+    <string name="progress_title">Progress &amp; Analytics</string>
+    <string name="progress_disclaimer">Activity statistics reflect your study habits, not a guaranteed prediction of exam results.</string>
+    <string name="progress_total_time">Total Study Time</string>
+    <string name="progress_total_sessions">Completed Sessions</string>
+    <string name="progress_confident_topics">Topics Confident</string>
+    <string name="progress_questions_attempted">Questions Attempted</string>
+    <string name="progress_accuracy_rate">Practice Accuracy: %1$d%%</string>
+    <string name="progress_insufficient_data">Practise more questions to view accuracy statistics.</string>
+    <string name="progress_no_comparison">Private on-device progress. No public leaderboards or peer comparison.</string>
+
+    <!-- Settings & AI Providers -->
+    <string name="settings_title">Settings &amp; Data</string>
+    <string name="settings_interface_lang">Interface Language</string>
+    <string name="settings_learning_medium">Exam Learning Medium</string>
+    <string name="settings_daily_minutes">Daily Study Goal (Minutes)</string>
+    <string name="settings_session_length">Preferred Session Duration</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_system">System Default</string>
+    <string name="settings_theme_light">Light Theme</string>
+    <string name="settings_theme_dark">Dark Theme</string>
+    <string name="settings_ai_section">AI Assistant Configuration</string>
+    <string name="settings_ai_provider">AI Provider</string>
+    <string name="settings_ai_key">API Key</string>
+    <string name="settings_ai_key_hint">Enter your API key...</string>
+    <string name="settings_ai_model">Model ID</string>
+    <string name="settings_ai_model_hint">e.g., gemini-2.5-flash or gpt-4o-mini</string>
+    <string name="settings_ai_endpoint">API Endpoint (HTTPS)</string>
+    <string name="settings_ai_keystore_notice">Secured locally with Android Keystore encryption. Never sent to any server other than your chosen provider.</string>
+    <string name="settings_ai_cost_warning">Notice: API calls use your own API account and may incur usage fees per provider policies.</string>
+    <string name="settings_data_section">Data Management &amp; Privacy</string>
+    <string name="settings_export_desc">Export all your study tasks, topics, notes, flashcards, and mistakes into a local JSON file.</string>
+    <string name="settings_import_desc">Import previously saved study data from a JSON file.</string>
+    <string name="settings_delete_confirm_title">Delete All Application Data?</string>
+    <string name="settings_delete_confirm_body">This action will permanently delete all your local subjects, progress, study plans, notes, flashcards, mistakes, and API keys from this device. It cannot be undone.</string>
+    <string name="settings_about_title">About Exam Rescue</string>
+    <string name="settings_about_desc">Native Android study companion for Sri Lankan GCE O/L students. Built offline-first with zero tracking, zero server dependencies, and user-controlled AI.</string>
+    <string name="settings_version">Version 1.0.0 (Build 1)</string>
+
+    <!-- AI Connection States -->
+    <string name="ai_test_success">Connection successful! Provider responded correctly.</string>
+    <string name="ai_error_invalid_key">Authentication failed: Invalid API key.</string>
+    <string name="ai_error_quota">Rate limit or quota exceeded with your provider.</string>
+    <string name="ai_error_offline">No internet connection. Please check your network.</string>
+    <string name="ai_error_timeout">Request timed out. Please try again.</string>
+    <string name="ai_error_generic">Provider error: %1$s</string>
+</resources>

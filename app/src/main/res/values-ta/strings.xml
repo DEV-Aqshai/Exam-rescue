@@ -1,0 +1,258 @@
+<resources>
+    <string name="app_name">Exam Rescue</string>
+    <string name="app_tagline">க.பொ.த சா/த பரீட்சை வழிகாட்டி &amp; இருமொழி ஆசான்</string>
+
+    <!-- வழிசெலுத்தல் (Navigation) -->
+    <string name="nav_home">முகப்பு</string>
+    <string name="nav_plan">திட்டம்</string>
+    <string name="nav_practise">பயிற்சி</string>
+    <string name="nav_tutor">வழிகாட்டி</string>
+    <string name="nav_progress">முன்னேற்றம்</string>
+    <string name="nav_settings">அமைப்புகள்</string>
+
+    <!-- பொதுவான செயல்கள் (Common Actions) -->
+    <string name="action_save">சேமி</string>
+    <string name="action_cancel">ரத்துசெய்</string>
+    <string name="action_delete">நீக்கு</string>
+    <string name="action_edit">திருத்து</string>
+    <string name="action_add">சேர்</string>
+    <string name="action_done">முடிந்தது</string>
+    <string name="action_next">அடுத்து</string>
+    <string name="action_back">பின்செல்</string>
+    <string name="action_get_started">தொடங்குவோம்</string>
+    <string name="action_skip">தவிர்</string>
+    <string name="action_confirm">உறுதிப்படுத்து</string>
+    <string name="action_apply">செயல்படுத்து</string>
+    <string name="action_search">தேடு</string>
+    <string name="action_filter">வடிகட்டு</string>
+    <string name="action_all">அனைத்தும்</string>
+    <string name="action_retry">மீண்டும் முயற்சி</string>
+    <string name="action_close">மூடு</string>
+    <string name="action_clear">துடை</string>
+    <string name="action_reschedule">மறுதிட்டமிடு</string>
+    <string name="action_mark_complete">முடித்ததாகக் குறி</string>
+    <string name="action_generate_plan">திட்டத்தை உருவாக்கு</string>
+    <string name="action_regenerate">பரிந்துரைகளை மீளுருவாக்கு</string>
+    <string name="action_export">தரவை ஏற்றுமதி செய்</string>
+    <string name="action_import">தரவை இறக்குமதி செய்</string>
+    <string name="action_test_connection">இணைப்பைச் சோதி</string>
+    <string name="action_remove_key">சாவி நீக்கு</string>
+    <string name="action_delete_all">அனைத்து தரவையும் நீக்கு</string>
+    <string name="action_save_notes">குறிப்புகளில் சேமி</string>
+    <string name="action_create_flashcards">நினைவூட்டல் அட்டை உருவாக்கு</string>
+    <string name="action_create_task">படிப்புப் பணியை உருவாக்கு</string>
+    <string name="action_understood">இப்போது புரிந்துகொண்டேன்</string>
+    <string name="action_practise_again">மீண்டும் பயிற்சி செய்</string>
+
+    <!-- தொடக்க வழிகாட்டல் (Onboarding) -->
+    <string name="onboarding_welcome_title">Exam Rescue இற்கு நல்வரவு</string>
+    <string name="onboarding_welcome_subtitle">இலங்கை க.பொ.த சாதாரண தர (GCE O/L) மாணவர்கள் தெளிவுடனும் தன்னம்பிக்கையுடனும் பரீட்சைக்குத் தயாராக உதவும் செயலி.</string>
+    <string name="onboarding_offline_notice">முழுமையாக இணையமின்றி இயங்கக்கூடியது. உங்கள் பாடத்திட்டம், குறிப்புகள், அட்டவணைகள் உங்கள் கைப்பேசியிலேயே பாதுகாப்பாக இருக்கும். கணக்கு பதிவு அல்லது சேவையகத் தேவையில்லை.</string>
+    <string name="onboarding_lang_title">செயலி மொழியைத் தேர்வுசெய்க</string>
+    <string name="onboarding_medium_title">கற்கும் மொழி மூலத்தைத் தேர்வுசெய்க</string>
+    <string name="onboarding_medium_desc">உங்கள் க.பொ.த சாதாரண தரப் பரீட்சை மொழி மூலத்தைத் தேர்ந்தெடுக்கவும். செயலி மொழியிலிருந்து சுயாதீனமாக தமிழ் அல்லது ஆங்கில மொழி மூலத்தைத் தேர்வுசெய்யலாம்.</string>
+    <string name="lang_english">English (ஆங்கிலம்)</string>
+    <string name="lang_tamil">தமிழ் (Tamil)</string>
+    <string name="medium_english">ஆங்கில மொழி மூலம் (English Medium)</string>
+    <string name="medium_tamil">தமிழ் மொழி மூலம் (Tamil Medium)</string>
+    <string name="onboarding_target_exam_title">க.பொ.த சா/த பரீட்சைத் திகதி</string>
+    <string name="onboarding_target_exam_subtitle">உங்கள் உத்தேச பரீட்சைத் திகதியை உள்ளிடவும் அல்லது \'தெரியாது\' என்பதைத் தேர்வுசெய்க.</string>
+    <string name="onboarding_not_sure">இன்னும் உறுதியாகத் தெரியாது</string>
+    <string name="onboarding_subjects_title">உங்கள் பாடங்களைத் தேர்வுசெய்க</string>
+    <string name="onboarding_subjects_subtitle">உங்கள் 6 பிரதான பாடங்கள் மற்றும் தொகுதிப் பாடங்களைத் தெரிவுசெய்யவும். இதனை எப்போது வேண்டுமானாலும் மாற்றலாம்.</string>
+    <string name="onboarding_availability_title">தினசரி படிப்பு நேரம்</string>
+    <string name="onboarding_availability_subtitle">ஒரு சாதாரண நாளில் எத்தனை நிமிடங்கள் படிக்க முடியும்?</string>
+    <string name="onboarding_session_length_title">விருப்பமான அமர்வு நேரம்</string>
+    <string name="onboarding_ai_disclosure_title">விருப்பத் தெரிவான செயற்கை நுண்ணறிவு (AI)</string>
+    <string name="onboarding_ai_disclosure_body">அனைத்து பிரதான அம்சங்களும் எந்தவொரு API சாவியும் இன்றி இணையமில்லாமலேயே செயல்படும். AI வழிகாட்டியைப் பயன்படுத்த விரும்பினால், நீங்கள் விரும்பும் நேரத்தில் உங்கள் சொந்த API சாவியை இணைக்கலாம்.</string>
+
+    <!-- முகப்புப் பலகை (Home Dashboard) -->
+    <string name="home_greeting">வணக்கம் மாணவரே</string>
+    <string name="home_exam_countdown">%2$s பரீட்சைக்கு இன்னும் %1$d நாட்கள் உள்ளன</string>
+    <string name="home_exam_none">அடுத்த பரீட்சைத் திகதி எதுவும் உள்ளிடப்படவில்லை. சேர்க்க தட்டவும்.</string>
+    <string name="home_today_plan">இன்றைய படிப்புத் திட்டம்</string>
+    <string name="home_minutes_studied">%1$d / %2$d நிமிடங்கள் திட்டமிடப்பட்டது</string>
+    <string name="home_continue_study">படிப்பைத் தொடர்க</string>
+    <string name="home_quick_actions">விரைவுச் செயல்கள்</string>
+    <string name="home_start_session">அமர்வைத் தொடங்கு</string>
+    <string name="home_practise">பயிற்சி செய்</string>
+    <string name="home_add_task">பணி சேர்</string>
+    <string name="home_ask_tutor">ஆசானிடம் கேள்</string>
+    <string name="home_weak_topics">கவனம் செலுத்த வேண்டிய தலைப்புகள்</string>
+    <string name="home_overdue_reviews">தாமதமான மீளாய்வுகள்</string>
+    <string name="home_no_tasks_today">இன்றைக்கு திட்டமிட்ட பணிகள் எதுவுமில்லை. \'திட்டத்தை உருவாக்கு\' அல்லது புதிய பணியைச் சேர்க்கவும்!</string>
+    <string name="home_all_tasks_completed">சிறப்பு! இன்றைய திட்டமிடப்பட்ட பணிகள் அனைத்தும் நிறைவடைந்தன.</string>
+
+    <!-- பாடங்கள் & தலைப்புகள் (Subjects & Topics) -->
+    <string name="subjects_title">பாடங்கள் &amp; பாடத்திட்டம்</string>
+    <string name="subjects_add_subject">புதிய பாடம் சேர்</string>
+    <string name="subjects_add_topic">தலைப்பு சேர்</string>
+    <string name="topic_confidence">நம்பிக்கை நிலை: %1$d / 5</string>
+    <string name="topic_status_not_started">தொடங்கப்படவில்லை</string>
+    <string name="topic_status_learning">கற்கின்றேன்</string>
+    <string name="topic_status_revising">மீளாய்வு செய்கின்றேன்</string>
+    <string name="topic_status_confident">தன்னம்பிக்கை உள்ளது</string>
+    <string name="topic_last_revised">கடைசி மீளாய்வு: %1$s</string>
+    <string name="topic_next_review">அடுத்த மீளாய்வு: %1$s</string>
+    <string name="topic_never_revised">இதுவரை மீளாய்வு செய்யப்படவில்லை</string>
+    <string name="sample_syllabus_notice">இணைக்கப்பட்டுள்ள பாடத்திட்டம் இலங்கை க.பொ.த சா/த மாதிரித் தொகுப்பாகும். மாணவரால் திருத்தப்படக் கூடியது.</string>
+
+    <!-- பரீட்சை அட்டவணை (Exams) -->
+    <string name="exams_title">பரீட்சை அட்டவணை</string>
+    <string name="exams_add">பரீட்சை சேர்</string>
+    <string name="exam_date">பரீட்சைத் திகதி: %1$s</string>
+    <string name="exam_days_left">இன்னும் %1$d நாட்கள்</string>
+    <string name="exam_reminder">நினைவூட்டல் இயக்கப்பட்டது</string>
+    <string name="exam_no_upcoming">வரவிருக்கும் பரீட்சைகள் எதுவும் பதிவிடப்படவில்லை.</string>
+
+    <!-- படிப்புத் திட்டமிடல் (Study Planner) -->
+    <string name="planner_title">படிப்புத் திட்டம்</string>
+    <string name="planner_day_view">நாள் பார்வை</string>
+    <string name="planner_week_view">வாரப் பார்வை</string>
+    <string name="planner_offline_rules">சுயாதீன விதிமுறைப்படி வரிசைப்படுத்தப்பட்டது</string>
+    <string name="planner_task_duration">%1$d நிமிடங்கள்</string>
+    <string name="planner_priority_high">முக்கிய முன்னுரிமை</string>
+    <string name="planner_priority_medium">நடுத்தர முன்னுரிமை</string>
+    <string name="planner_priority_low">சாதாரண முன்னுரிமை</string>
+    <string name="planner_reason_exam">பரீட்சை அண்மித்துவிட்டது</string>
+    <string name="planner_reason_confidence">குறைந்த நம்பிக்கை நிலை</string>
+    <string name="planner_reason_overdue">மீளாய்வு செய்ய வேண்டிய காலம் கடந்துவிட்டது</string>
+    <string name="planner_reason_new">இதுவரை படிக்கப்படாத பகுதி</string>
+    <string name="planner_time_budget_warning">மொத்த திட்டமிடப்பட்ட நேரம் (%1$d நிமி) உங்கள் தினசரி இலக்கிற்குள் (%2$d நிமி) உள்ளது.</string>
+    <string name="planner_no_tasks">இந்த நாளுக்கு திட்டமிடப்பட்ட பணிகள் எதுவுமில்லை.</string>
+
+    <!-- படிப்பு அமர்வு (Study Session / Timer) -->
+    <string name="session_title">கவனக் குவிப்பு படிப்பு அமர்வு</string>
+    <string name="session_type_learn">புதிய கருத்துக்களைக் கற்றல்</string>
+    <string name="session_type_recall">மீட்டுணர்தல் (Active Recall)</string>
+    <string name="session_type_questions">வினாப் பயிற்சி</string>
+    <string name="session_type_review">விரைவு மீளாய்வு</string>
+    <string name="session_start">நேரக் கணிப்பானைத் தொடங்கு</string>
+    <string name="session_pause">இடைநிறுத்து</string>
+    <string name="session_resume">மீளத்தொடங்கு</string>
+    <string name="session_finish">அமர்வை முடித்துவிடு</string>
+    <string name="session_completed_title">படிப்பு அமர்வு நிறைவடைந்தது!</string>
+    <string name="session_duration_label">கால அளவு: %1$d நிமிடங்கள்</string>
+    <string name="session_rate_understanding">உங்கள் புரிதலை மதிப்பிடுங்கள் (1-5):</string>
+    <string name="session_notes_placeholder">முக்கிய குறிப்புகள் அல்லது கற்றுக்கொண்டவற்றை எழுதவும் (விருப்பத்தேர்வு)...</string>
+    <string name="session_save_summary">சுருக்கத்தைச் சேமி</string>
+
+    <!-- வினாப் பயிற்சி (Practice & Questions) -->
+    <string name="practise_title">வினாப் பயிற்சி</string>
+    <string name="practise_filter_subject">பாடம் வாரியாக வடிகட்டு</string>
+    <string name="practise_filter_topic">தலைப்பு வாரியாக வடிகட்டு</string>
+    <string name="practise_filter_difficulty">கடினத்தன்மை</string>
+    <string name="practise_sample_tag">மாதிரி வினா</string>
+    <string name="practise_check_answer">விடையைச் சரிபார்</string>
+    <string name="practise_explanation">விளக்கமும் தீர்வுப் படிகளும்</string>
+    <string name="practise_correct">சரியான விடை! அருமை.</string>
+    <string name="practise_incorrect">தவறான விடை. கீழே உள்ள விளக்கத்தைப் பார்க்கவும்.</string>
+    <string name="practise_saved_to_mistakes">மீளாய்வுக்காக தவறுப் பதிவேட்டில் சேர்க்கப்பட்டது.</string>
+    <string name="practise_no_questions">தேர்வுசெய்த தலைப்பில் வினாக்கள் எதுவும் இல்லை. வேறு பாடம் அல்லது தலைப்பைத் தேர்ந்தெடுக்கவும்.</string>
+    <string name="practise_add_custom">சொந்த வினா சேர்</string>
+
+    <!-- தவறுப் பதிவேடு (Mistake Notebook) -->
+    <string name="mistakes_title">தவறுப் பதிவேடு</string>
+    <string name="mistakes_subtitle">உங்கள் பிழைகளிலிருந்து கற்றுக்கொண்டு பரீட்சையில் முழு மதிப்பெண் பெறுங்கள்.</string>
+    <string name="mistakes_your_answer">உங்கள் விடை: %1$s</string>
+    <string name="mistakes_correct_answer">சரியான மாதிரி விடை: %1$s</string>
+    <string name="mistakes_status_active">பயிற்சி தேவை</string>
+    <string name="mistakes_status_understood">புரிந்துகொண்டேன்</string>
+    <string name="mistakes_empty">தவறுகள் எதுவும் இதுவரை பதிவாகவில்லை. பயிற்சி செய்யும் போது தவறான விடைகள் இங்கு தானாகச் சேகரிக்கப்படும்.</string>
+
+    <!-- குறிப்புகள் & நினைவூட்டல் அட்டைகள் (Notes & Flashcards) -->
+    <string name="notes_title">குறிப்புகள் &amp; நினைவூட்டல் அட்டைகள்</string>
+    <string name="tab_notes">குறிப்புகள்</string>
+    <string name="tab_flashcards">நினைவூட்டல் அட்டைகள்</string>
+    <string name="notes_add">புதிய குறிப்பு</string>
+    <string name="notes_title_hint">குறிப்பின் தலைப்பு...</string>
+    <string name="notes_body_hint">உங்கள் பாடக் குறிப்புகளை இங்கு தட்டச்சு செய்யவும்...</string>
+    <string name="notes_empty">குறிப்புகள் எதுவும் உருவாக்கப்படவில்லை. முக்கிய சமன்பாடுகள் மற்றும் வரைவிலக்கணங்களை இங்கு சேமிக்கவும்.</string>
+    <string name="flashcards_add">புதிய அட்டை</string>
+    <string name="flashcard_front_hint">வினா அல்லது கருத்து (முன்பக்கம்)...</string>
+    <string name="flashcard_back_hint">விடை அல்லது விளக்கம் (பின்பக்கம்)...</string>
+    <string name="flashcard_tap_flip">தட்டி திருப்பிப் பார்க்கவும்</string>
+    <string name="flashcard_again">மீண்டும் (&lt; 1 நாள்)</string>
+    <string name="flashcard_hard">கடினம் (1 நாள்)</string>
+    <string name="flashcard_good">நன்று (3 நாள்)</string>
+    <string name="flashcard_easy">எளிது (5 நாள்)</string>
+    <string name="flashcards_due_count">%1$d அட்டைகள் மீளாய்வுக்கு தயாராக உள்ளன</string>
+    <string name="flashcards_all_reviewed">அனைத்து அட்டைகளும் மீளாய்வு செய்யப்பட்டுவிட்டன! சிறப்பு.</string>
+
+    <!-- AI ஆசான் & ஏஜெண்டுகள் (AI Tutor & Agents) -->
+    <string name="tutor_title">இருமொழி AI ஆசான்</string>
+    <string name="tutor_subtitle">க.பொ.த சா/த வழிகாட்டி. தமிழ் மற்றும் ஆங்கிலத்தில் உதவும்.</string>
+    <string name="tutor_no_api_key_banner">AI ஆசானைப் பயன்படுத்த உங்கள் சொந்த API சாவி தேவை. பிற அம்சங்கள் 100% இணையமின்றி இயங்கும்.</string>
+    <string name="tutor_configure_key">அமைப்புகளில் கட்டமைக்க</string>
+    <string name="tutor_offline_notice">கைப்பேசியில் இணைய இணைப்பில்லை அல்லது சேவை கட்டமைக்கப்படவில்லை. உள்ளூர் பயிற்சிகள் மற்றும் குறிப்புகளைப் பயன்படுத்தவும்.</string>
+    <string name="tutor_disclaimer">குறிப்பு: AI தரும் விடைகள் சில சமயம் பிழையாக இருக்கலாம். பாடப்புத்தகங்களை வைத்து சரிபார்க்கவும்.</string>
+    <string name="tutor_quick_explain">எளிமையாக விளக்கு</string>
+    <string name="tutor_quick_example">ஒரு உதாரணம் தா</string>
+    <string name="tutor_quick_quiz">என்னிடம் ஒரு வினா கேள்</string>
+    <string name="tutor_quick_check">என் விடையைச் சரிபார்</string>
+    <string name="tutor_quick_summarize">சுருக்கித் தா</string>
+    <string name="tutor_quick_flashcards">நினைவூட்டல் அட்டை செய்</string>
+    <string name="tutor_agent_planner_coach">படிப்புத் திட்ட ஆலோசகர்</string>
+    <string name="tutor_agent_concept_tutor">கருத்து விளக்க ஆசான்</string>
+    <string name="tutor_agent_recall_coach">மீட்டுணர்தல் பயிற்றுநர்</string>
+    <string name="tutor_agent_mistake_detective">பிழை துப்பறிவாளர்</string>
+    <string name="tutor_agent_flashcard_builder">அட்டை உருவாக்குநர்</string>
+    <string name="tutor_agent_notes_summarizer">குறிப்புச் சுருக்காளர்</string>
+    <string name="tutor_agent_exam_countdown">பரீட்சை வழிகாட்டி</string>
+    <string name="tutor_agent_paper_builder">வினாத்தாள் தயாரிப்பாளர்</string>
+    <string name="tutor_agent_feedback_coach">விடை பின்னூட்ட ஆசான்</string>
+    <string name="tutor_agent_focus_coach">கவனக் குவிப்பு வழிகாட்டி</string>
+    <string name="tutor_input_hint">ஏதேனும் கேள்வியைக் கேட்கவும் அல்லது விளக்கத்தைக் கோரவும்...</string>
+    <string name="tutor_send">அனுப்பு</string>
+    <string name="tutor_context_disclosure">தேர்வுசெய்த தலைப்பு, குறிப்புகள் அல்லது தவறுகள் பாதுகாப்பான HTTPS ஊடாக உங்கள் AI வழங்குநருக்கு அனுப்பப்படும்.</string>
+    <string name="tutor_proposal_title">AI பரிந்துரைத்த மாற்றங்கள்</string>
+    <string name="tutor_proposal_approve">ஏற்றுக்கொண்டு சேர்</string>
+    <string name="tutor_proposal_discard">நிராகரி</string>
+
+    <!-- முன்னேற்றம் (Progress) -->
+    <string name="progress_title">முன்னேற்றம் &amp; புள்ளிவிவரங்கள்</string>
+    <string name="progress_disclaimer">இவை உங்கள் படிப்பு பழக்கவழக்கங்களைக் காட்டுகின்றன, இறுதி பரீட்சை முடிவுகளின் முன்கணிப்பு அல்ல.</string>
+    <string name="progress_total_time">மொத்த படித்த நேரம்</string>
+    <string name="progress_total_sessions">நிறைவுசெய்த அமர்வுகள்</string>
+    <string name="progress_confident_topics">தன்னம்பிக்கை கொண்ட தலைப்புகள்</string>
+    <string name="progress_questions_attempted">பயிற்சி செய்த வினாக்கள்</string>
+    <string name="progress_accuracy_rate">பயிற்சித் துல்லியம்: %1$d%%</string>
+    <string name="progress_insufficient_data">துல்லியத்தைக் கணக்கிட இன்னும் சில வினாக்களுக்கு விடையளிக்கவும்.</string>
+    <string name="progress_no_comparison">உங்கள் கைப்பேசியில் மட்டுமே தரவு சேமிக்கப்படுகிறது. பிற மாணவர்களுடன் ஒப்பிடுதல் இல்லை.</string>
+
+    <!-- அமைப்புகள் (Settings & Data) -->
+    <string name="settings_title">அமைப்புகள் &amp; தரவு</string>
+    <string name="settings_interface_lang">செயலி மொழி</string>
+    <string name="settings_learning_medium">பரீட்சை கற்கும் மொழி மூலம்</string>
+    <string name="settings_daily_minutes">தினசரி படிப்பு இலக்கு (நிமிடங்கள்)</string>
+    <string name="settings_session_length">அமர்வு நேர அளவு</string>
+    <string name="settings_theme">வண்ண தீம்</string>
+    <string name="settings_theme_system">இயக்க முறைமை வழியானது</string>
+    <string name="settings_theme_light">வெளிச்ச தீம்</string>
+    <string name="settings_theme_dark">இருண்ட தீம்</string>
+    <string name="settings_ai_section">AI உதவியாளர் கட்டமைப்பு</string>
+    <string name="settings_ai_provider">AI வழங்குநர்</string>
+    <string name="settings_ai_key">API சாவி (Key)</string>
+    <string name="settings_ai_key_hint">உங்கள் API சாவியை உள்ளிடவும்...</string>
+    <string name="settings_ai_model">மாதிரி அடையாளம் (Model ID)</string>
+    <string name="settings_ai_model_hint">உதாரணமாக: gemini-2.5-flash அல்லது gpt-4o-mini</string>
+    <string name="settings_ai_endpoint">இணைய முனைப்புள்ளி (HTTPS)</string>
+    <string name="settings_ai_keystore_notice">Android Keystore என்க்ரிப்ஷன் மூலம் கைப்பேசியிலேயே பாதுகாப்பாக வைக்கப்படும்.</string>
+    <string name="settings_ai_cost_warning">அறிவிப்பு: API அழைப்புகள் உங்கள் சொந்த கணக்கில் இயங்குவதால் வழங்குநரின் கட்டணக் கொள்கைக்கு உட்பட்டது.</string>
+    <string name="settings_data_section">தரவு மேலாண்மை &amp; தனியுரிமை</string>
+    <string name="settings_export_desc">உங்கள் தலைப்புகள், திட்டங்கள், குறிப்புகள், தவறுகளை JSON கோப்பாக ஏற்றுமதி செய்யவும்.</string>
+    <string name="settings_import_desc">முன்னர் சேமிக்கப்பட்ட JSON காப்புப் பிரதியிலிருந்து தரவை இறக்குமதி செய்யவும்.</string>
+    <string name="settings_delete_confirm_title">அனைத்து தரவுகளையும் அழிக்கவா?</string>
+    <string name="settings_delete_confirm_body">இந்த செயலியில் உள்ள உங்களின் அனைத்து பாடங்கள், முன்னேற்றம், குறிப்புகள், அட்டவணைகள் மற்றும் API சாவிகள் நிரந்தரமாக அழிக்கப்படும். இதனை மீட்டெடுக்க முடியாது.</string>
+    <string name="settings_about_title">Exam Rescue பற்றி</string>
+    <string name="settings_about_desc">இலங்கை க.பொ.த சாதாரண தர மாணவர்களுக்கான சுயம்சார் மொபைல் செயலி. எந்தவித தரவுக் கண்காணிப்பும் இன்றி பாதுகாப்பானது.</string>
+    <string name="settings_version">பதிப்பு 1.0.0 (Build 1)</string>
+
+    <!-- AI இணைப்பு நிலைகள் (AI States) -->
+    <string name="ai_test_success">இணைப்பு வெற்றியடைந்தது! வழங்குநர் சரியாகப் பதிலளித்தார்.</string>
+    <string name="ai_error_invalid_key">அங்கீகரிப்புத் தோல்வி: தவறான API சாவி.</string>
+    <string name="ai_error_quota">அழைப்பு வரம்பு அல்லது ஒதுக்கீடு முடிந்துவிட்டது.</string>
+    <string name="ai_error_offline">இணைய இணைப்பு இல்லை. உங்கள் நெட்வொர்க்கைச் சரிபார்க்கவும்.</string>
+    <string name="ai_error_timeout">நேரம் கடந்துவிட்டது. மீண்டும் முயற்சிக்கவும்.</string>
+    <string name="ai_error_generic">வழங்குநர் பிழை: %1$s</string>
+</resources>
